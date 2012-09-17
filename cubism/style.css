@@ -1,0 +1,95 @@
+
+.time-series {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  margin: 30px auto;
+  width: 800px;
+  position: relative;
+}
+
+.time-series .axis {
+  font: 10px sans-serif;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.time-series .axis text {
+  -webkit-transition: fill-opacity 250ms linear;
+}
+
+.time-series .axis path {
+  display: none;
+}
+
+.time-series .axis line {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.time-series .axis.top {
+  background-image: linear-gradient(top, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: -o-linear-gradient(top, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: -moz-linear-gradient(top, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: -webkit-linear-gradient(top, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: -ms-linear-gradient(top, #fff 0%, rgba(255,255,255,0) 100%);
+  top: 0px;
+}
+
+.time-series .axis.bottom {
+  background-image: linear-gradient(bottom, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: -o-linear-gradient(bottom, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: -moz-linear-gradient(bottom, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: -webkit-linear-gradient(bottom, #fff 0%, rgba(255,255,255,0) 100%);
+  background-image: -ms-linear-gradient(bottom, #fff 0%, rgba(255,255,255,0) 100%);
+  bottom: 0px;
+}
+
+.time-series .horizon {
+  border-bottom: solid 1px #000;
+  overflow: hidden;
+  position: relative;
+}
+
+.time-series .horizon {
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+}
+
+.time-series .horizon + .horizon {
+  border-top: none;
+}
+
+.time-series .horizon canvas {
+  display: block;
+}
+
+.time-series .horizon .title,
+.time-series .horizon .value {
+  bottom: 0;
+  line-height: 30px;
+  margin: 0 6px;
+  position: absolute;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  white-space: nowrap;
+  font-size: 120%;
+}
+
+.time-series .horizon .title {
+  left: 0;
+}
+
+.time-series .horizon .value {
+  right: 0;
+}
+
+.time-series .line {
+  background: #000;
+  opacity: .2;
+  z-index: 2;
+  
+}
+
+@media all and (max-width: 1439px) {
+  .time-series { margin: 0px auto; }
+  .time-series .axis { position: static; }
+  .time-series .axis.top, .time-series .axis.bottom { padding: 0; }
+}
