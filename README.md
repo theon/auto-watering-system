@@ -1,7 +1,7 @@
 auto-watering-system
 ====================
 
-Arduino system to automatically water my chilli plant when the soil gets dry with cubism visulisation.
+Arduino system to automatically water my chilli plant when the soil gets dry with some [cubism](http://square.github.com/cubism) visulisation as a bonus.
 
 Read more [in this blog post](http://theon.github.com/plant-watering-with-arduino.html)
 
