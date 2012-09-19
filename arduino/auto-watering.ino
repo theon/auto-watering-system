@@ -27,10 +27,20 @@ unsigned long pollMillis = 60000; // 1 min
 int waterAtMoisture = 1023 - 400;
 
 /*
-  Server connection details
+  When the soil gets dry enough to warrant a watering,
+  how many millis to open the valve for.
+*/
+int waterForMillis = 3500;
+
+/*
+  Cube Server IP
+*/
+byte server[] = { 54, 247, 99, 12 };
+
+/*
+  Local IP settings
 */
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-byte server[] = { 54, 247, 99, 12 };
 byte ip[] = { 192, 168, 1, 102 }; 
 byte submask[] = { 255, 255, 255, 0 };
 byte gateway[] = { 192, 168, 1, 254 };
@@ -64,6 +74,9 @@ void loop() {
 void poll() {
   Serial.print("Polling... ");
   
+  //Using int for watered rather than boolean
+  //as the cube server doesn't report metrics 
+  //on booleans very well
   int moisture = getSoilMoisture();
   int watered = 0;
   
@@ -107,7 +120,7 @@ int getSoilMoisture(){
 */
 void waterThePlant() {
   digitalWrite(valveOutputPin, HIGH);
-  delay(1000);
+  delay(waterForMillis);
   digitalWrite(valveOutputPin, LOW);
 }
 
